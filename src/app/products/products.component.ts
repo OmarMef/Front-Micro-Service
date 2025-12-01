@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {ProductService} from '../service/product.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-products.component',
@@ -10,12 +11,32 @@ import {HttpClient} from '@angular/common/http';
 export class ProductsComponent implements OnInit{
 
   products : any;
-  constructor(private http : HttpClient) {}
+  constructor(private productService : ProductService,
+              private router : Router) {}
 
   ngOnInit(): void {
-    this.http.get("http://localhost:8888/inventory-service/api/products").subscribe({
+    this.getAllProducts()
+  }
+
+  getAllProducts(){
+    this.productService.GetAllProducts().subscribe({
       next : (data) => {this.products = data},
       error : err => {}
     });
+  }
+
+  delete(product :any) {
+    let v = confirm('êtes vous sûre de vouloir supprimer le produit ?')
+    if (v == true) {
+      this.productService.DeleteProducts(product).subscribe({
+        next: resp => {this.getAllProducts()},
+        error : err => {console.log(err)}
+      })
+    this.getAllProducts()
+    }
+  }
+
+  addProduct() {
+    this.router.navigateByUrl('/add-product')
   }
 }

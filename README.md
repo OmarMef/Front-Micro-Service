@@ -9,3 +9,9 @@
 
 <h1>Order Details Customer and Products Informations</h1>
 <img src="captures/cap4.png">
+
+<h1>Add Customer</h1>
+<img src="captures/cap5.png">
+
+<h1>Add Product</h1>
+<img src="captures/cap6.png">

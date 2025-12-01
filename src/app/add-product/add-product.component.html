@@ -1,0 +1,43 @@
+<div class="container d-flex justify-content-center align-items-center mt-5 mb-5">
+  <div class="card shadow p-4" style="max-width: 500px; width: 100%; background-color: #f8f9fa; border-radius: 10px;">
+
+    <h2 class="text-center mb-4" style="color: #28a745;">Ajouter un Nouveau Produit</h2>
+
+    <!-- Formulaire Angular -->
+    <form [formGroup]="productForm" (ngSubmit)="addProduct()">
+
+      <!-- ID (readonly) -->
+      <div class="mb-3">
+        <label for="id" class="form-label">ID</label>
+        <input type="text" id="id" class="form-control" formControlName="id" readonly>
+      </div>
+
+      <!-- Nom -->
+      <div class="mb-3">
+        <label for="name" class="form-label">Nom</label>
+        <input type="text" id="name" class="form-control" formControlName="name" placeholder="Ex: Computer">
+      </div>
+
+      <!-- Prix -->
+      <div class="mb-3">
+        <label for="price" class="form-label">Prix</label>
+        <input type="number" id="price" class="form-control" formControlName="price" placeholder="Ex: 3200">
+      </div>
+
+      <!-- Quantité -->
+      <div class="mb-3">
+        <label for="quantity" class="form-label">Quantité</label>
+        <input type="number" id="quantity" class="form-control" formControlName="quantity" placeholder="Ex: 10">
+      </div>
+
+      <!-- Bouton Ajouter -->
+      <div class="text-center">
+        <button type="submit" class="btn btn-success px-4">
+          <i class="bi bi-plus-circle">Ajouter</i>
+        </button>
+      </div>
+
+    </form>
+
+  </div>
+</div>

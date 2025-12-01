@@ -1,0 +1,37 @@
+<div class="container d-flex justify-content-center align-items-center mt-5 mb-5">
+  <div class="card shadow p-4" style="max-width: 500px; width: 100%; background-color: #f8f9fa; border-radius: 10px;">
+
+    <h2 class="text-center mb-4" style="color: #28a745;">Ajouter un Nouveau Customer</h2>
+
+    <!-- Formulaire Angular -->
+    <form [formGroup]="customerForm" (ngSubmit)="addCustomer()">
+
+      <!-- ID (readonly) -->
+      <div class="mb-3">
+        <label for="id" class="form-label">ID</label>
+        <input type="text" id="id" class="form-control" formControlName="id" readonly>
+      </div>
+
+      <!-- Nom -->
+      <div class="mb-3">
+        <label for="name" class="form-label">Nom</label>
+        <input type="text" id="name" class="form-control" formControlName="name" placeholder="Ex: Mohammed">
+      </div>
+
+      <!-- Email -->
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" id="email" class="form-control" formControlName="email" placeholder="Ex: mohammed@gmail.com">
+      </div>
+
+      <!-- Bouton Ajouter -->
+      <div class="text-center">
+        <button type="submit" class="btn btn-success px-4">
+          <i class="bi bi-plus-circle">Ajouter</i>
+        </button>
+      </div>
+
+    </form>
+
+  </div>
+</div>
